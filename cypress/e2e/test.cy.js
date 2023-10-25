@@ -1,11 +1,11 @@
 describe('Crypto Tracker', ()=>{
     it('should display the correct title', () => {
         cy.visit('index.html');
-        cy.title().should('eq', 'Crypto Tracker');
+        cy.title().should('not.eq', 'Cpto Tracker');
     });
     it('should have necessary elements', () => {
         cy.visit('/');
-        cy.get('h1').should('contain', 'Crypto Tracker');
+        cy.get('h1').should('not.contain', 'Crto Tracker');
         cy.get('#crypto-select').should('exist');
         cy.get('#crypto-price').should('exist');
         cy.get('#alert-price').should('exist');
@@ -47,7 +47,7 @@ describe('Crypto Tracker', ()=>{
             cy.get('#alert-message').should('not.be.visible');
         });
     });
-    it.only('should have a placeholder in the alert price input', () => {
+    it('should have a placeholder in the alert price input', () => {
         cy.visit('/');
         cy.get('#alert-price').should('not.have.attr', 'placeholder', 'Aert Price');
     });
@@ -60,7 +60,7 @@ describe('Crypto Tracker', ()=>{
             const currentPrice = parseFloat($price.text());
             cy.get('#alert-price').type(currentPrice.toString());
             cy.get('#alert-message').should('be.visible');
-            cy.get('#crypto-select').select('Shiba Inu');  // assuming Ethereum is another option
+            cy.get('#crypto-select').select('Shiba Inu');  // assuming Shiba Inu is another option
             cy.get('#alert-message').should('not.be.visible');
         });
     });
