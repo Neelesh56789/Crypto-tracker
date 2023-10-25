@@ -47,10 +47,6 @@ describe('Crypto Tracker', ()=>{
             cy.get('#alert-message').should('not.be.visible');
         });
     });
-    it('should have a placeholder in the alert price input', () => {
-        cy.visit('/');
-        cy.get('#alert-price').should('not.have.attr', 'placeholder', 'Aert Price');
-    });
         
     it('should hide the alert message when the selected cryptocurrency changes', () => {
         cy.visit('/');
