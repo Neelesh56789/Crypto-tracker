@@ -61,3 +61,25 @@ describe('Crypto Tracker', ()=>{
         });
     });
 })
+
+
+// cypress/integration/responsiveness.spec.js
+describe('Responsive Design', () => {
+    beforeEach(() => {
+      cy.visit('index.html'); // Replace with your app's URL
+    });
+    it('Should display correctly on a tablet viewport', () => {
+      cy.viewport('ipad-2');
+      cy.get('.container').should('have.css', 'max-width', '600px'); // Max-width for tablets
+      cy.get('.crypto-info').should('have.css', 'flex-direction', 'row'); // Side by side layout
+    });
+  
+    it('Should display correctly on a desktop viewport', () => {
+      cy.viewport('macbook-15');
+      cy.get('.container').should('have.css', 'max-width', '600px'); // Max-width for tablets (adjust as needed)
+      cy.get('.crypto-info').should('have.css', 'flex-direction', 'row'); // Side by side layout (adjust as needed)
+    });
+  
+  });
+  
+  

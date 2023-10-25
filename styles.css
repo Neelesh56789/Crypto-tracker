@@ -106,3 +106,18 @@ button:active {
         opacity: 1;
     }
 }
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px; 
+    }
+    
+    .crypto-info, .alert-setup {
+        flex-direction: row; 
+    }
+    
+    select, #alert-price {
+        width: auto;
+    }
+}
+
